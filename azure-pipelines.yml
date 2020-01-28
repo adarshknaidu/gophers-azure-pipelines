@@ -87,18 +87,5 @@ stages:
         TargetFolder: '$(Build.SourcesDirectory)'
       displayName: 'Copy executable to folder with Dockerfile'
 
-    - task: Docker@2
-      displayName: 'Login to Docker Hub'
-      inputs:
-        command: login
-        containerRegistry: 'Docker Hub'
 
-    - task: Docker@2
-      displayName: 'Build and Push Image'
-      inputs:
-        command: buildAndPush
-        repository: adarshknaidu/gosampleonazure
-        tags: |
-          latest
-          $(Build.BuildId)
 
